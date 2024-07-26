@@ -1,22 +1,22 @@
 package com.dmm.bootcamp.yatter2024.ui.login
 
-internal data class LoginUiState(
-  val loginBindingModel: LoginBindingModel,
-  val validUsername: Boolean,
-  val validPassword: Boolean,
-  val isLoading: Boolean,
-) {
-  companion object {
-    fun empty(): LoginUiState = LoginUiState(
-      loginBindingModel = LoginBindingModel(
-        username = "",
-        password = ""
-      ),
-      validUsername = false,
-      validPassword = false,
-      isLoading = false,
-    )
-  }
+data class LoginUiState(
+    val loginBindingModel: LoginBindingModel,
+    val isLoading: Boolean,
+    val validUsername: Boolean,
+    val validPassword: Boolean,
+){
+    val isEnableLogin: Boolean = validUsername && validPassword
 
-  val isEnableLogin: Boolean = validUsername && validPassword
+    companion object{
+        fun empty(): LoginUiState = LoginUiState(
+            loginBindingModel = LoginBindingModel(
+                username = "",
+                password = "",
+            ),
+            validUsername = false,
+            validPassword = false,
+            isLoading = false,
+        )
+    }
 }

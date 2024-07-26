@@ -16,122 +16,122 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dmm.bootcamp.yatter2024.ui.theme.Yatter2024Theme
 
+//class LoginPage {
+//}
+
 @Composable
 fun LoginTemplate(
-  userName: String,
-  onChangedUserName: (String) -> Unit,
-  password: String,
-  onChangedPassword: (String) -> Unit,
-  isEnableLogin: Boolean,
-  isLoading: Boolean,
-  onClickLogin: () -> Unit,
-  onClickRegister: () -> Unit,
+    userName: String,
+    onChangedUserName: (String) -> Unit,
+    password: String,
+    onChangedPassword: (String) -> Unit,
+    isEnableLogin: Boolean,
+    isLoading: Boolean,
+    onClickLogin: () -> Unit,
+    onClickRegister: () -> Unit,
 ) {
-  Scaffold(
-    topBar = {
-      TopAppBar(
-        title = {
-          Text(text = "ログイン")
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(text = "ログイン")
+                }
+            )
         }
-      )
-    }
-  ) {
-    Box(
-      modifier = Modifier
-        .fillMaxSize()
-        .padding(it)
-        .padding(8.dp),
-      contentAlignment = Alignment.Center,
-    ) {
-      Column(modifier = Modifier.fillMaxSize()) {
-        Text(
-          modifier = Modifier
-            .fillMaxWidth()
-            .padding(top = 16.dp),
-          text = "ユーザー名"
-        )
-        OutlinedTextField(
-          singleLine = true,
-          modifier = Modifier
-            .fillMaxWidth()
-            .padding(bottom = 16.dp),
-          value = userName,
-          onValueChange = onChangedUserName,
-          placeholder = {
-            Text(text = "username")
-          },
-        )
-
-        Text(
-          modifier = Modifier.fillMaxWidth(),
-          text = "パスワード"
-        )
-        OutlinedTextField(
-          singleLine = true,
-          modifier = Modifier
-            .fillMaxWidth()
-            .padding(bottom = 16.dp),
-          value = password,
-          onValueChange = onChangedPassword,
-          placeholder = {
-            Text(text = "password")
-          },
-        )
-
-        Button(
-          enabled = isEnableLogin,
-          onClick = onClickLogin,
-          modifier = Modifier
-            .fillMaxWidth(),
+    ){
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(it)
+                .padding(8.dp),
         ) {
-          Text(text = "ログイン")
+            Column(modifier = Modifier.fillMaxSize()) {
+                Text(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 16.dp),
+                    text = "ユーザー名"
+                )
+                OutlinedTextField(
+                    singleLine = true,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 16.dp),
+                    value = userName,
+                    onValueChange = onChangedUserName,
+                    placeholder = {
+                        Text(text = "username")
+                    },
+                )
+
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
+                    text = "パスワード"
+                )
+                OutlinedTextField(
+                    singleLine = true,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 16.dp),
+                    value = password,
+                    onValueChange = onChangedPassword,
+                    placeholder = {
+                        Text(text = "password")
+                    },
+                )
+
+                Button(
+                    enabled = isEnableLogin,
+                    onClick = onClickLogin,
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                ) {
+                    Text(text = "ログイン")
+                }
+
+                Divider(modifier = Modifier.padding(vertical = 16.dp))
+
+                Text(
+                    text = "はじめてご利用の方は",
+                    modifier = Modifier.fillMaxWidth(),
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.body2
+                )
+                TextButton(
+                    onClick = onClickRegister,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(text = "新規会員登録")
+                }
+            }
+            if (isLoading) {
+                CircularProgressIndicator()
+            }
         }
-
-        Divider(modifier = Modifier.padding(vertical = 16.dp))
-
-        Text(
-          text = "はじめてご利用の方は",
-          modifier = Modifier.fillMaxWidth(),
-          textAlign = TextAlign.Center,
-          style = MaterialTheme.typography.body2
-        )
-        TextButton(
-          onClick = onClickRegister,
-          modifier = Modifier.fillMaxWidth()
-        ) {
-          Text(text = "新規会員登録")
-        }
-      }
-
-      if (isLoading) {
-        CircularProgressIndicator()
-      }
     }
-  }
 }
 
 @Preview
 @Composable
-fun LoginTemplatePreview() {
-  Yatter2024Theme {
-    Surface {
-      LoginTemplate(
-        userName = "username",
-        onChangedUserName = {},
-        password = "password",
-        onChangedPassword = {},
-        isEnableLogin = true,
-        isLoading = false,
-        onClickLogin = {},
-        onClickRegister = {},
-      )
+private fun LoginTemplatePreview(){
+    Yatter2024Theme {
+        Surface {
+            LoginTemplate(
+                userName = "username",
+                onChangedUserName = {},
+                password = "password",
+                onChangedPassword = {},
+                isEnableLogin = true,
+                isLoading = false,
+                onClickLogin = {},
+                onClickRegister = {},
+            )
+        }
     }
-  }
 }
