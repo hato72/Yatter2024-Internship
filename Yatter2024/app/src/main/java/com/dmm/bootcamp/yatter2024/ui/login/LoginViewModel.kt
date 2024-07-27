@@ -1,5 +1,6 @@
 package com.dmm.bootcamp.yatter2024.ui.login
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dmm.bootcamp.yatter2024.common.navigation.Destination
@@ -68,7 +69,7 @@ class LoginViewModel(
                 }
 
                 is LoginUseCaseResult.Failure -> {
-
+                    Log.ERROR
                 }
             }
             _uiState.update { it.copy(isLoading = false) }

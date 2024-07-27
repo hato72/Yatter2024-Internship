@@ -1,5 +1,6 @@
 package com.dmm.bootcamp.yatter2024.ui.post
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dmm.bootcamp.yatter2024.common.navigation.Destination
@@ -50,6 +51,7 @@ class PostViewModel(
                 }
                 is PostStatusUseCaseResult.Failure -> {
                     //エラー表示
+                    Log.ERROR
                 }
             }
             _uiState.update{it.copy(isLoading = false)}

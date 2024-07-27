@@ -1,5 +1,6 @@
 package com.dmm.bootcamp.yatter2024.ui.signup
 
+import android.util.Log
 import androidx.compose.animation.core.snap
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -54,28 +55,6 @@ class SignUpViewModel(
 
     fun onClickLogin(){
         _destination.value = LoginDestination()
-//        viewModelScope.launch{
-//            _uiStateLog.update { it.copy(isLoading = true) }
-//
-//            val snapBindingModel = uiStateLog.value.loginBindingModel
-//            when(
-//                val result =
-//                    loginUseCase.execute(
-//                        Username(snapBindingModel.username),
-//                        Password(snapBindingModel.password),
-//                    )
-//            ){
-//                is LoginUseCaseResult.Success -> {
-//                    _destination.value = LoginDestination()
-//                }
-//
-//                is LoginUseCaseResult.Failure -> {
-//
-//                }
-//            }
-//
-//            _uiStateLog.update { it.copy(isLoading = false) }
-//        }
     }
 
     fun onClickRegister() {
@@ -97,8 +76,8 @@ class SignUpViewModel(
                 }
 
                 is RegisterAccountUseCaseResult.Failure -> {
-                    // 4
                     // エラー表示
+                    Log.ERROR
                 }
             }
 
