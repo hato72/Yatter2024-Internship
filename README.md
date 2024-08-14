@@ -1,5 +1,6 @@
 # Yatter2024
 DMM Androidインターンシップにて開発
+
 Yatter2024/app/src/main/java/com/dmm/bootcamp/yatter2024/uiに実装
 
 ## サンプル動画
